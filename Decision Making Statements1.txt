@@ -1,0 +1,454 @@
+           Color detection
+
+1.QUESTION:
+Dr. Dexter is a Robotics Research Scientist. He is now on the urge of building his own humanoid robot - Xinyou. 
+
+Xinyou has an in-built color sensor. The sensor senses the environment and gives the color that is highly present in the spectrum. Now, Dr. Dexter wants Xinyou to output whether it is dawn or dusk based on the sensor's output. The sensor outputs 'BLUE' or 'RED'. If color blue is scattered more it is Dawn and if red is scattered more it is Dusk. 
+
+Any input other than 'BLUE' and 'RED' is assumed to be an invalid input. 
+
+Write a program that finds out whether it is Dawn or Dusk.
+
+
+INPUT & OUTPUT FORMAT:
+
+Input is a string.
+Output is a string, either "It is Dawn", "It is Dusk", or "Invalid Input".
+Refer to the sample input & output for formatting specifications.
+ 
+SAMPLE INPUT & OUTPUT 1:
+BLUE
+It is Dawn  
+ 
+SAMPLE INPUT & OUTPUT 2:
+GREEN
+Invalid Input 
+
+Code:
+a=str(input())
+if a=='BLUE':
+    print("It is Dawn")
+elif a=='RED':
+    print("It is Dusk")
+else:
+        print("Invalid Input")
+                                      Weather check
+    
+2.QUESTION:
+Xinyou has an in-built GPS system that gives its current position coordinates as input. Using these coordinates Xinyou gets the current weather information. Initially, Dr. Dexter wants Xinyou to drive only when it is sunny. The different weather conditions are 'sunny', 'rainy', and 'foggy'.
+
+Given the weather condition, write a program to check whether Xinyou can drive or not.
+ 
+INPUT FORMAT:
+
+Input consists of a string, corresponding to the weather condition.
+
+OUTPUT FORMAT:
+
+Output is a string "Yes I can drive smile" or "Sorry invalid input :|" or "No I cant drive sad".
+Refer to the sample input and output for formatting specifications. 
+SAMPLE INPUT & OUTPUT 1:
+sunny
+Yes I can drive :)
+SAMPLE INPUT & OUTPUT 2:
+misty
+Sorry invalid input :|
+SAMPLE INPUT & OUTPUT3:
+rainy
+No I cant drive :(
+
+Code:
+a=str(input())
+if a=='sunny':
+    print("Yes I can drive :)")
+elif a=='misty':
+    print("Sorry invalid input :|")
+else:
+    print("No I cant drive :(")
+                                           Distance & Speed - I
+
+3.QUESTION:
+
+Xinyou has been trained to drive now. Dr. Dexter wants to get to a National Conference to present Xinyou. The venue of the conference is x kms away from his workshop. He wants to know if Xinyou will be able to make it to the conference on time if he travels at y kms/h.
+Write a program module that checks if he will be able to make it to the conference on time.
+
+ 
+INPUT & OUTPUT FORMAT: 
+
+Input consists of 4 lines.
+The first line of input is a floating point number corresponding to the distance 'd'. 0 < d < 32767.
+The second line of input is a floating point number corresponding to the speed 's'. 0 < s < 32767.
+The third line of input is a string corresponding to the time at which the conference begins – 'ti'. 
+The fourth line of input is a string corresponding to the current time, 'tj'.
+'ti' and 'tj'  are strictly in the 'hh:mm' format (tj<ti).
+Output consists of a single string 'Yes', 'No' or 'Invalid Input'.
+SAMPLE INPUT & OUTPUT 1:
+100
+25
+16:00
+10:00
+Yes
+ SAMPLE INPUT & OUTPUT 2:
+150
+50
+10:00
+16:00
+Invalid Input
+SAMPLE INPUT & OUTPUT 3:
+100
+25
+14:00
+10:00
+No
+
+Code:
+d=int(input())
+s=int(input())
+ti=input()
+tj=input()
+t=d/s
+a=int(ti[0:2])
+b=int(tj[0:2])
+c=a-b
+if tj<ti and c>t:
+    print("Yes")
+elif tj<ti and c<t:
+    print("No")
+else:
+    print("Invalid Input")
+ 
+               Distance & Speed check - II
+
+
+4.QUESTION:
+
+Xinyou has been trained to drive now. Dr. Dexter wants to get to a national conference to present Xinyou. The venue of the conference is d km away from his workshop. He wants to know if Xinyou will be able to make it to the conference in 'h' hours, driving within the city speed limit 's'.
+Write a program module that checks if he will be able to make it to the conference on time.
+
+ 
+INPUT FORMAT:
+
+Input consists of 3 lines.
+The first line of input is a floating point number d (0 < d < 32767), which corresponds to the distance. 
+The second line of input is a floating point number s (0 < s < 32767), which corresponds to the speed limit.
+The third line of input is a floating point number h (0 < h < 32767), which corresponds to the time.
+OUTPUT FORMAT:
+Output consists of a single string 'Yes', 'No' or 'Invalid Input'.
+Refer to the sample input and output for formatting specifications. 
+SAMPLE INPUT & OUTPUT:
+100
+25
+5
+Yes
+SAMPLE INPUT & OUTPUT 2:
+150
+-50
+123
+Invalid Input
+SAMPLE INPUT & OUTPUT 3:
+100
+50
+1
+No
+
+
+Code:
+d=int(input())
+s=int(input())
+t=int(input())
+if t==d/s:
+    print("Yes")
+elif t==(d/s)+1:
+    print("Yes")
+elif t>(d/s)+2:
+    print("Invalid Input")
+elif t<d/s:
+    print("No")
+    
+
+              Toll pass
+5.QUESTION:
+
+Dr. Dexter regularly visits his only friend Dr. Lee. Dr. Lee lives in a city named Nakuto. In order to get to Nakuto, Dr. Dexter has to take National Highways (NH  999). NH 999 has a toll booth where the toll passes are categorized as One-way pass, Two-way pass, and Monthly pass.
+If Dr. Dexter travels to Nakuto and doesn't return the same day, a one-way pass would do better. If he travels to Nakuto and returns to his hometown the same day, a two-way pass is economical. One-way passes cost $O, two-way passes cost $T and monthly-passes cost $M. In a month, Dr. Dexter plans to travel 'x' times to Nakuto and stays there, travel 'y' times to Nakuto and returns home the same day. He wants Xinyou to know whether a combination of one-way and two-way passes would be economical or a monthly pass would be economical. 
+
+Write a program module that finds out whether he ought to take a monthly-pass or a combination of one-way and two-way passes.
+ 
+INPUT FORMAT:
+
+Input consists of 5 lines.
+The first line of input is an integer 'x', which corresponds to the sum of the number of times Dr. Dexter travels only to Nakuto and doesn't return back in a day and the number of times he travels to his home town from Nakuto without a two-way pass.
+The second line of input is an integer 'y', which corresponds to the number of times Dr. Dexter travels to Nakuto and returns back to his hometown the same day.
+The third line of input is a floating point number 'o', which corresponds to the cost of a one-way pass.
+The fourth line of input is a floating point number 't', which corresponds to the cost of a two-way pass.
+The fifth line of input is a floating point number 'm', which corresponds to the cost of a monthly pass.
+OUTPUT FORMAT:
+Output consists of a string, "Monthly Pass" or "Invalid Input" or "One way pass + Two way pass".
+Refer to the sample input and output for formatting specifications. 
+Note: When the combination of one-way and two-way pass equals monthly pass, Dr.Dexter prefers monthly pass.
+
+Consider, o < t < m
+
+SAMPLE INPUT & OUTPUT 1:
+10
+15
+10
+12
+250
+Monthly Pass
+SAMPLE INPUT & OUTPUT 2:
+20
+20
+100
+110
+5000
+One way pass  +  Two way pass
+SAMPLE INPUT & OUTPUT 3:
+10
+15
+15
+12
+250
+Invalid Input
+
+
+Code:
+a=int(input())
+b=int(input())
+c=int(input())
+d=int(input())
+e=int(input())
+f=(a*c)+(b*d)
+if e<=f and c<d:
+   print("Monthly Pass") 
+elif e>f and c<d:
+   print("One way pass + Two way pass")
+else:
+    print("Invalid Input")
+
+         Seat belts
+
+6.QUESTION:
+
+Dr. Dexter's car's seat belt detectors have been corrupted. So he wants you to build a module which checks if all the seat belts are worn. If and only if all the seat belts are worn Xinyou must start driving.
+Write a program module that checks if all the seat belts have been worn.
+
+ 
+INPUT FORMAT:
+
+Input consists of 3 lines.
+The 3 lines consist of strings 'yes' or 'no' corresponding to whether the seat belts have been worn or not.
+OUTPUT FORMAT:
+Output consists of a single string 'Yes I can drive' or 'No I can't drive' or 'Invalid Input'
+Refer to the sample input and output for formatting specifications. 
+Assume that all inputs consist of lowercase characters only.
+[All text in bold corresponds to input and the rest to output.]
+
+SAMPLE INPUT & OUTPUT 1:
+yes
+yes
+yes
+Yes I can drive  
+SAMPLE INPUT & OUTPUT 2:
+No
+Yes
+Yes
+Invalid Input
+
+
+Code:
+a=input()
+b=input()
+c=input()
+d='yes'
+e='no'
+if a==d and b==d and c==d:
+    print("Yes I can drive")
+elif a==e and b==e and c==e:
+    print("No I can't drive")
+elif 'a!=b' or 'a!=c':
+    print("Invalid Input")
+
+               Petrol bunks
+
+7.QUESTION:
+
+Dr. Dexter has now started his trip to Shinyao. Unfortunately, he has forgotten about the fuel. There are two gas bunks on the way to Shinyao, 'A' and 'B'. As soon as his car reaches the bunk A, it runs out of fuel. Bunks A and B are 'd' miles apart. Xinyou, the robot finds out from statistics that one of the bunks provides the best quality fuel. They decide on filling the best quality fuel.
+Write a program module that finds the quantity of fuel that has to be filled at bunks A and B.
+ 
+INPUT FORMAT:
+Input consists of 4 lines.
+The first line of input is an integer d (0 <  d < 32767), which corresponds to the distance between bunks A and B
+The second line of input is an integer s (0 <  s < 32767), whcih corresponds to the distance between bunk A and Shinyao.
+The third line of input is a floating point number 'm' corresponding to the mileage Dr.Dexter's car yields.
+The fourth line of input is the character 'b' corresponding to the bunk that provides the best quality fuel. Assume that b takes values either 'A' or 'B'
+Assume that bunk A lies before bunk B.
+OUTPUT FORMAT:
+Output consists of the quantities of fuel to be filled at bunks A and B, correct up to 2 decimal places.
+Refer to the sample input and output for formatting specifications. 
+SAMPLE INPUT & OUTPUT:
+100
+200
+25
+B
+4.00
+4.00
+
+Code:
+a=int(input())
+b=int(input())
+m=float(input())
+c=input()
+mi=a/m
+r=(b-a)/m
+if c=='A':
+    print("%.2f"%(mi+r))
+    print("0.00")
+else:
+    print("%.2f"%mi)
+    print("%.2f"%r)
+
+          Petrol variety
+
+8.QUESTION:
+
+Dr. Dexter is now in the gas bunk. He has perfectly planned his trip. He has been working keenly on the budget so that the trip goes on well. Now, he finds that there are two varieties of fuel – Ordinary and Speed. Speed fuel yields him a fairly better performance than its ordinary counterpart. He wants Xinyou to find out as to which variety of fuel he must opt to stick to the budget.
+Write a program to find out the variety of fuel.
+
+ 
+INPUT FORMAT:
+
+Input consists of 5 lines.
+The first line of input is a floating point number 'm', which corresponds to the mileage Dr.Dexter's car yields.
+The second line and third lines of input consists of floating point numbers 'o' and 's', which corresponds to the costs of ordinary fuel and speed fuel respectively.
+The fourth line of input is an integer 'd', which corresponds to the distance between the bunk and Shinyao.
+The fifth line of input is a floating point number 'b', which corresponds to the budget for the fuel.
+OUTPUT FORMAT:
+Output consists of a string 'Ordinary' or 'Speed'.
+Refer to the sample input and output for formatting specifications. 
+SAMPLE INPUT & OUTPUT 1:
+25
+75
+100
+3
+500
+Speed
+SAMPLE INPUT & OUTPUT 2:
+25
+75
+100
+25
+80
+Ordinary
+
+Code:
+a=float(input())
+b=float(input())
+c=float(input())
+d=int(input())
+e=float(input())
+f=d/a;
+g=f*b
+h=f*c
+if e<=g or e>=h:
+    print("Speed")
+else:
+    print("Ordinary")
+
+               Air check
+
+9.QUESTION:
+
+Dr. Dexter is now in the gas bunk. He has filled fuel with your help and now is about to take an air check. He wants Xinyou to fill air. Dr. Dexter owns a Honda Civic and Xinyou gets to know that the air pressure to be filled in the front tyres is 33 PSI and rear tyres is 32 PSI. 
+Write a program to check if the tyres already have enough air and print whether the tyres have to be deflated, inflated or left untouched. 
+  
+INPUT FORMAT:
+Input consists of 4 lines of floating point numbers, each corresponding to the air pressure in each of the tyres. 
+The first line corresponds to the front-left tyre. 
+The second line corresponds to the rear-left tyre. 
+The third line corresponds to the rear-right tyre. 
+The fourth line corresponds to the front-right tyre. 
+OUTPUT FORMAT:
+Output consists of 4 lines.  
+Refer to the sample input and output for formatting specifications.  
+SAMPLE INPUT & OUTPUT: 
+33 
+35 
+40 
+31 
+Front-left : Untouched 
+Rear-left : Deflate 
+Rear-right : Deflate 
+Front-right : Inflate 
+
+Code:
+a=float(input())
+b=float(input())
+c=float(input())
+d=float(input())
+if a==33:
+    print("Front-left : Untouched")
+elif a>33:
+    print("Front-left : Deflate")
+else:
+    print("Front-left : Inflate")
+if b==32:
+    print("Rear-left : Untouched")
+elif b>32:
+    print("Rear-left : Deflate")
+else:
+    print("Rear-left : Inflate")
+if c==32:
+    print("Rear-right : Untouched")
+elif c>32:
+    print("Rear-right : Deflate")
+else:
+    print("Rear-right : Inflate")
+if d==33:
+    print("Front-right : Untouched")
+elif d>32:
+    print("Front-right : Deflate")
+else:
+    print("Front-right : Inflate")
+    
+
+         Traffic lights
+10.QUESTION:
+
+
+Now, Xinyou is quite well versed with driving skills. He now has to learn the traffic signals. Write a program that instructs Xinyou in this regard.
+ 
+INPUT & OUTPUT FORMAT:
+Input consists of a string 's' corresponding to the color of the traffic light red, yellow or green.
+Assume that the input consists of lowercase characters only.
+Output consists of a single line, a string 'Go', 'Stop','Get Ready' or 'Invalid Input'.
+Refer to the sample input and output for formatting specifications. 
+SAMPLE INPUT & OUTPUT 1:
+red
+Stop
+SAMPLE INPUT & OUTPUT 2:
+blue
+Invalid Input
+SAMPLE INPUT & OUTPUT 3:
+Blue
+Invalid Input
+
+Code:
+a=str(input())
+if a=='red':
+    print("Stop")
+elif a=='Red':
+    print("Stop")
+elif a=='yellow':
+    print("Get Ready")
+elif a=='Yellow':
+    print("Get Ready")
+elif a=='green':
+    print("Go")
+elif a=='Green':
+    print("Go")
+else:
+    print("Invalid Input")
+
+
+          
